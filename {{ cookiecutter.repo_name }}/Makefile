@@ -40,14 +40,11 @@ lint:
 
 ## Set up python interpreter environment and install required packages
 create_environment:
-        $(PYTHON_INTERPRETER) -m venv ~/$(PROJECT_NAME)
-        source ~/$(PROJECT_NAME)/bin/activate
-        $(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-        $(PYTHON_INTERPRETER) -m pip install -r requirements.txt
-
-## Source environment with project name if exist
-source_environment:
-        source ~/$(PROJECT_NAME)/bin/activate
+	$(PYTHON_INTERPRETER) -m venv ~/$(PROJECT_NAME)
+	source ~/$(PROJECT_NAME)/bin/activate; \
+	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel; \
+	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	echo "source ~/$(PROJECT_NAME)/bin/activate" > activate_environment;
 
 ## Test python environment is setup correctly
 test_environment:

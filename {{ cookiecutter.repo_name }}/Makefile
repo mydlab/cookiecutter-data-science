@@ -46,7 +46,7 @@ create_environment:
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel; \
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt; \
 	$(PYTHON_INTERPRETER) -m pip install ipykernel; \
-	$(PYTHON_INTERPRETER) -m ipykernel install --name $(PROJECT_NAME) --display-name $(PROJECT_NAME)
+	$(PYTHON_INTERPRETER) -m ipykernel install --user --name $(PROJECT_NAME) --display-name $(PROJECT_NAME)
 	
 ## Remove a python interpreter environment
 remove_environment:

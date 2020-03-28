@@ -42,16 +42,15 @@ lint:
 create_environment:
 	mkdir -p ~/envs/
 	$(PYTHON_INTERPRETER) -m venv ~/envs/$(PROJECT_NAME)
-	source ~/$(PROJECT_NAME)/bin/activate; \
+	. ~/envs/$(PROJECT_NAME)/bin/activate; \
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel; \
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt; \
 	$(PYTHON_INTERPRETER) -m pip install ipykernel; \
 	$(PYTHON_INTERPRETER) -m ipykernel install --user --name $(PROJECT_NAME) --display-name $(PROJECT_NAME)
-	echo "source ~/$(PROJECT_NAME)/bin/activate" > activate_environment;
 	
 ## Remove a python interpreter environment
 remove_environment:
-	source ~/$(PROJECT_NAME)/bin/activate; \
+	. ~/envs/$(PROJECT_NAME)/bin/activate; \
 	echo y | jupyter kernelspec uninstall myenv $(PROJECT_NAME); \
 	$(PYTHON_INTERPRETER) -m venv --clear ~/envs/$(PROJECT_NAME)
 	

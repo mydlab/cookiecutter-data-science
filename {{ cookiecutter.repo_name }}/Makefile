@@ -51,7 +51,7 @@ create_environment:
 ## Remove a python interpreter environment
 remove_environment:
 	. ~/envs/$(PROJECT_NAME)/bin/activate; \
-	echo y | jupyter kernelspec uninstall myenv $(PROJECT_NAME); \
+	echo y | jupyter kernelspec uninstall $(PROJECT_NAME); \
 	$(PYTHON_INTERPRETER) -m venv --clear ~/envs/$(PROJECT_NAME)
 	
 ## Test python environment is setup correctly
